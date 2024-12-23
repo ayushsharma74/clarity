@@ -20,7 +20,7 @@ import {
     responseMimeType: "text/plain",
   };
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: Request) {
   try {
     const { prompt } = await req.json(); 
 
@@ -36,7 +36,7 @@ export async function POST(req: Request, res: Response) {
     console.log('Prompt:', prompt);
 
     return NextResponse.json({ text });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching Gemini API', error);
     return Response.json({ error: error.message }, { status: 500 });
   }
