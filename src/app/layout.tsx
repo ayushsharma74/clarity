@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import NextTopLoader from 'nextjs-toploader';
+import Link from "next/link";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaDiscord } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,8 +34,35 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <NextTopLoader  color="gray"/>
         <Navbar />
         {children}
+        <div className="w-full p-2 flex justify-between bg-black">
+        <h1 className="text-white font-semibold text-sm">Brought to you by <Link href={"https://x.com/ayusssshhhhhhh"} className="underline hover:no-underline hover:text-zinc-400 transition-colors duration-300">ayush</Link></h1>
+        <div className="text-white flex gap-3">
+        <Link
+                href={"https://twitter.com/ayusssshhhhhhh"}
+                className="underline hover:text-zinc-400 transition-colors duration-200"
+                target="_blank"
+              >
+                <FaXTwitter size={25}/>
+              </Link>
+              <Link
+                href={"https://discord.gg/butxCZyntw"}
+                className="underline hover:text-zinc-400 transition-colors duration-200"
+                target="_blank"
+              >
+                <FaDiscord size={25}/>
+              </Link>
+              <Link
+                href={"https://github.com/ayushsharma74"}
+                className="underline hover:text-zinc-400 transition-colors duration-200"
+                target="_blank"
+              >
+                <FaGithub size={25}/>
+              </Link>
+        </div>
+      </div>
       </body>
     </html>
   );
