@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaDiscord } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { Analytics } from "@vercel/analytics/react"
 
 
 const geistSans = Geist({
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Analytics />
         <NextTopLoader  color="gray"/>
         <Navbar />
         {children}
